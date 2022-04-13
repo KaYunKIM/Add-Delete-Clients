@@ -123,9 +123,9 @@ MongoDB의 접근해서 데이터를 불러와야 했으므로 pymongo 모듈을
 
    3. python 파일 zip 압축하기
 
-![Screen Shot 2022-02-09 at 11.09.50 AM](imgs/Screen Shot 2022-02-09 at 11.09.50 AM.png)
+![layers](imgs/layers.png)
 
-
+![python_zip](imgs/python_zip.png)
 
 1. AWS Lamdba 콘솔에서 왼쪽 메뉴바의 Layers 클릭 후 Create layer 클릭\
 2.  Name 입력 후 Upload zip file 선택 후 python.zip 파일 Upload
@@ -133,7 +133,7 @@ MongoDB의 접근해서 데이터를 불러와야 했으므로 pymongo 모듈을
 
 
 
-![Screen Shot 2022-02-09 at 11.11.11 AM](imgs/Screen Shot 2022-02-09 at 11.11.11 AM.png)
+![create_layer](imgs/create_layer.png)
 
 
 
@@ -141,7 +141,7 @@ MongoDB의 접근해서 데이터를 불러와야 했으므로 pymongo 모듈을
 
 2. Custom layers 선택 후 방금 만든 layers 선택 후 Add!
 
-   ![Screen Shot 2022-02-09 at 11.12.01 AM](imgs/Screen Shot 2022-02-09 at 11.12.01 AM.png)
+   ![Add_layer](imgs/Add_layer.png)
 
 
 
@@ -158,5 +158,5 @@ MongoDB의 접근해서 데이터를 불러와야 했으므로 pymongo 모듈을
        connection = pymongo.MongoClient(db_con)
    ```
 
-![Screen Shot 2022-02-09 at 8.18.15 PM](imgs/Screen Shot 2022-02-09 at 8.18.15 PM.png)
+![env_variable](imgs/env_variable.png)
 

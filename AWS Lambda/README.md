@@ -1,7 +1,3 @@
----
-typora-root-url: ../../Add:Delete_clients
----
-
 ## AWS Lambda를 이용한 알림 메세지 보내기
 
 
@@ -43,9 +39,9 @@ Trigger Event로는 API Gateway, SNS, EventBridge 등이 있는데, 매일 한�
 
 
 
-![Screen Shot 2022-02-09 at 10.48.30 AM](/AWS Lambda/imgs/Screen Shot 2022-02-09 at 10.48.30 AM.png)
+![event_bridge](imgs/event_bridge.png)
 
-![Screen Shot 2022-02-09 at 10.44.00 AM](/AWS Lambda/imgs/Screen Shot 2022-02-09 at 10.44.00 AM.png)
+![teams_serviceKey_manager](imgs/teams_serviceKey_manager.png)
 
 
 

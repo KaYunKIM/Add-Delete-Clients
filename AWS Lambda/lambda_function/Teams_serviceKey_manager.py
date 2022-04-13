@@ -5,15 +5,15 @@ import datetime
 
 from urllib.request import Request, urlopen
 
+
 def post_msg(argStr):
-    # message = [siteNm, serviceKey, conStartDt, conEndDt, seviceEndDt]
     message = argStr
     
     send_data = {
       "@type": "MessageCard",
       "@context": "http://schema.org/extensions",
       "themeColor": "0076D7",
-      "summary": "Larry Bryant created a new task",
+      "summary": message[0],
       "sections": [{
           "activityTitle": message[0],
           "activitySubtitle": message[1],
@@ -30,7 +30,7 @@ def post_msg(argStr):
       }],
       "potentialAction": [{
           "@type": "ActionCard",
-          "name": "Feedback",
+          "name": "Comment",
           "inputs": [{
               "@type": "TextInput",
               "id": "comment",
@@ -38,14 +38,14 @@ def post_msg(argStr):
           }],
           "actions": [{
               "@type": "HttpPOST",
-              "name": "Add comment",
-              "target": "http://:8080/admin/rest_api/api?api=trigger_dag",
+              "name": "Comment",
+              "target": "https://docs.microsoft.com/outlook/actionable-messages"
+          },{
+              "@type": "HttpPOST",
+              "name": "Delete",
+              # API Gateway HTTP POST API => trigger delete_serviceKey lambda funtion
+              "target": "https://pkr6te3hh0.execute-api.ap-northeast-2.amazonaws.com/dev/deleteServiceKey?client={}&serviceKey={}".format(message[0], message[1])
           }]
-      }, {
-        "@type": "HttpPOST",
-        "name": "Learn More",
-        "target": "http://:8080/admin/rest_api/api?api=list_dags",
-        "body": "serviceKey={{message[1]}}"
       }]
     }
     
@@ -70,7 +70,7 @@ def lambda_handler(event, context):
     connection = pymongo.MongoClient(db_con)
     
     # connect to MongoDB Database
-    database = connection.get_database('Gr')
+    database = connection.get_database('Grb')
     
     today = datetime.datetime.today().strftime("%Y-%m-%d")
     last_month = datetime.datetime.today() - datetime.timedelta(days=50)

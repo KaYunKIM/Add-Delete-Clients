@@ -39,11 +39,9 @@ Trigger Event로는 API Gateway, SNS, EventBridge 등이 있는데, 매일 한�
 
 
 
-![Screen Shot 2022-02-09 at 10.48.30 AM](Screen Shot 2022-02-09 at 10.48.30 AM.png)
+![Screen Shot 2022-02-09 at 10.48.30 AM](imgs/Screen Shot 2022-02-09 at 10.48.30 AM.png)
 
-
-
-![Screen Shot 2022-02-09 at 10.44.00 AM](Screen Shot 2022-02-09 at 10.44.00 AM.png)
+![Screen Shot 2022-02-09 at 10.44.00 AM](imgs/Screen Shot 2022-02-09 at 10.44.00 AM.png)
 
 
 
@@ -125,7 +123,7 @@ MongoDB의 접근해서 데이터를 불러와야 했으므로 pymongo 모듈을
 
    3. python 파일 zip 압축하기
 
-![Screen Shot 2022-02-09 at 11.09.50 AM](Screen Shot 2022-02-09 at 11.09.50 AM.png)
+![Screen Shot 2022-02-09 at 11.09.50 AM](imgs/Screen Shot 2022-02-09 at 11.09.50 AM.png)
 
 
 
@@ -135,7 +133,7 @@ MongoDB의 접근해서 데이터를 불러와야 했으므로 pymongo 모듈을
 
 
 
-![Screen Shot 2022-02-09 at 11.11.11 AM](Screen Shot 2022-02-09 at 11.11.11 AM.png)
+![Screen Shot 2022-02-09 at 11.11.11 AM](imgs/Screen Shot 2022-02-09 at 11.11.11 AM.png)
 
 
 
@@ -143,7 +141,7 @@ MongoDB의 접근해서 데이터를 불러와야 했으므로 pymongo 모듈을
 
 2. Custom layers 선택 후 방금 만든 layers 선택 후 Add!
 
-   ![Screen Shot 2022-02-09 at 11.12.01 AM](Screen Shot 2022-02-09 at 11.12.01 AM.png)
+   ![Screen Shot 2022-02-09 at 11.12.01 AM](imgs/Screen Shot 2022-02-09 at 11.12.01 AM.png)
 
 
 
@@ -160,5 +158,5 @@ MongoDB의 접근해서 데이터를 불러와야 했으므로 pymongo 모듈을
        connection = pymongo.MongoClient(db_con)
    ```
 
-![Screen Shot 2022-02-09 at 8.18.15 PM](Screen Shot 2022-02-09 at 8.18.15 PM.png)
+![Screen Shot 2022-02-09 at 8.18.15 PM](imgs/Screen Shot 2022-02-09 at 8.18.15 PM.png)
 

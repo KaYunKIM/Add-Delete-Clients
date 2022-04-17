@@ -44,7 +44,7 @@ def post_msg(argStr):
               "@type": "HttpPOST",
               "name": "Delete",
               # API Gateway HTTP POST API => trigger delete_serviceKey lambda funtion
-              "target": "https://pkr6te3hh0.execute-api.ap-northeast-2.amazonaws.com/dev/deleteServiceKey?client={}&serviceKey={}".format(message[0], message[1])
+              "target": "https://pkr6te3hh0.execute-api.ap-northeast-2.amazonaws.com/dev/deleteServiceKey?serviceKey={}".format(message[1])
           }]
       }]
     }
@@ -61,7 +61,7 @@ def post_msg(argStr):
     with urlopen(request) as response:
         #send teams message 
         response.read()
-        
+
 
 def lambda_handler(event, context):
     

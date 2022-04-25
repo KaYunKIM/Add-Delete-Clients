@@ -1,10 +1,8 @@
 import os
 import json
 import pymongo
-import datetime
-import subprocess
-import paramiko
 import boto3
+import time
 
 from urllib.request import Request, urlopen
 
@@ -12,8 +10,26 @@ from urllib.request import Request, urlopen
 def post_msg(argStr):
     message = argStr
     
-    s3_client = boto3.client('s3')
-    s3_client.download_file('s3groobeeds', 'groobeeds.pem', '/tmp/groobeeds.pem')
+    ssm_client = boto3.client('ssm')
+    response = ssm_client.send_command(
+            # airflow-main-server 
+            InstanceIds=['i-0eddf'],
+            DocumentName="AWS-RunShellScript",
+            Parameters={
+                'commands': [
+                    "export HOME=/home/ec2-user",
+                    "/home/ec2-user/trigger_delete_servicKey_DAG.sh {}".format(message[1]),
+                ]
+            },
+        )
+    time.sleep(3)
+
+    output = ssm_client.get_command_invocation(
+            CommandId=response['Command']['CommandId'],
+            InstanceId='i-0eddf',
+        )
+    
+    print(output)
     
     send_data = {
       "@type": "MessageCard",
@@ -21,7 +37,7 @@ def post_msg(argStr):
       "themeColor": "0076D7",
       "summary": "{} 해지완료".format(message[0]),
       "sections": [{
-          "activityTitle": message[0],
+          "activityTitle": message[1],
           "activitySubtitle": "해지완료",
       }],
     }
@@ -32,13 +48,13 @@ def post_msg(argStr):
     request = Request(
         # teams URL
         HOOK_URL,
-        data=send_text.encode('utf-8'),
+        data=send_text.encode('utf-8'), 
     )
 
     with urlopen(request) as response:
         #teams_message
         response.read()
-
+        
 
 def lambda_handler(event, context):
     

@@ -13,7 +13,7 @@ def post_msg(argStr):
       "@type": "MessageCard",
       "@context": "http://schema.org/extensions",
       "themeColor": "0076D7",
-      "summary": message[0],
+      "summary": "{} 해지알림".format(message[0]),
       "sections": [{
           "activityTitle": message[0],
           "activitySubtitle": message[1],

@@ -63,7 +63,7 @@ def post_slack(argStr):
     send_text = json.dumps(send_data)
     request = urllib.request.Request(
         # slack Alert
-        "https://hooks.slack.com/services/TRD8WMQSF/...zA8", 
+        "https://hooks.slack.com/services/..", 
         data=send_text.encode('utf-8'), 
     )
 
@@ -78,26 +78,15 @@ def lambda_handler(event, context):
     connection = pymongo.MongoClient(db_con)
     
     # connect to MongoDB Database
-    database = connection.get_database('GB')
+    database = connection.get_database()
     
-    today = datetime.datetime.today().strftime("%Y-%m-%d")
-    last_month = datetime.datetime.today() - datetime.timedelta(days=30)
-    last_month = last_month.strftime("%Y-%m-%d")
-    
-    data_cursor = database.get_collection('Site').find({"useCd":"US", "conEndDt":{"$gte" : last_month,  "$lte" : today} })
-    # data_cursor = database.get_collection('Site').find({"conEndDt":{"$gte" : last_month,  "$lte" : today} })
-    for data in data_cursor:
-        print(data['siteNm'], data['serviceKey'], data['useCd'], data['conStartDt'], data['conEndDt'], data['seviceEndDt']) 
-        
+    data_cursor = database.get_collection('Site')
+    for data in data_cursor: 
         siteNm = data['siteNm']
         serviceKey = data['serviceKey']
-        useCd = data['useCd']
-        conStartDt = data['conStartDt']
-        conEndDt = data['conEndDt']
-        seviceEndDt = data['seviceEndDt']
+        ...
         
-        post_slack('{} / {} \n{} ~ {} \n{}'.format(siteNm, serviceKey, conStartDt, conEndDt, seviceEndDt))
-        post_slack('-------------------------------------')
+        post_slack('{} / {}'.format(siteNm, serviceKey))
 
 ```
 

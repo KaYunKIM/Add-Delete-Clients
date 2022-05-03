@@ -48,13 +48,6 @@ Trigger Event로는 API Gateway, SNS, EventBridge 등이 있는데, 매일 한�
 ### 3. AWS Lambda Function 함수 코드 작성하기
 
 ```
-import os
-import json
-import urllib.request
-import pymongo
-import datetime
-
-
 def post_slack(argStr):
     message = argStr
     send_data = {

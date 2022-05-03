@@ -5,7 +5,7 @@ Airflow task들 끼리 변수를 전달하기 위해 xcom_pull을 통해 이전 
 그러나 DAG가 아예 사라져버린 현상을 마주했고, 아래와 같은 오류가 Airflow UI에 나타났음.
 
 ```python
-Broken DAG: [/data/airflow/G2R12N-DAGS/keyword/delete_serviceKey_dag.py] string indices must be integers
+Broken DAG: [../delete_serviceKey_dag.py] string indices must be integers
 ```
 
 
@@ -45,7 +45,7 @@ error message에 의하면 스트링을 숫자 인덱스로 접근해야 했는�
 def get_client_info():
     serviceKey = "594a"
     
-    data = open('/data/airflow/G2R12N-CONF/clients.yml', encoding="utf-8")
+    data = open('clients.yml', encoding="utf-8")
     parsed_data = yaml.load(data, Loader=yaml.FullLoader)
 
     client_info = {

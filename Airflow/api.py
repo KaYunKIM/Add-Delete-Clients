@@ -6,9 +6,6 @@ class DagHandler:
         logging.info('unpause fnc started...')
         dag_name = dict()
 
-        dag_name['rec'] = ['keyword', 'statistic', 'statistic_real', 'ml', 'dl']
-        dag_name['seg'] = ['purchase', 'rfm']
-
         clients = open("clients.yml")
         parsed_data = yaml.load(clients, Loader=yaml.FullLoader)
 

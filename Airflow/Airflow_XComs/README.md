@@ -12,9 +12,7 @@ Broken DAG: [../delete_serviceKey_dag.py] string indices must be integers
 
 XComs에는 의도한 값이 정상적으로 잘 나오고 있었다.
 
-![Screen Shot 2022-03-14 at 1.45.39 PM](img/Screen Shot 2022-03-14 at 1.45.39 PM.png)
-
-
+![xcom1](img/xcom1.png)
 
 ```python
 client_info = "{{ task_instance.xcom_pull('get_client_data', key='return_value') }}"
@@ -35,7 +33,7 @@ error message에 의하면 스트링을 숫자 인덱스로 접근해야 했는�
 
 결과는 아래와 같이 ‘{’ 문자 하나만 출력되었다.
 
-![Screen Shot 2022-03-14 at 1.50.47 PM](img/Screen Shot 2022-03-14 at 1.50.47 PM.png)
+![xcom2](img/xcom2.png)
 
 
 
